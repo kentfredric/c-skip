@@ -1,4 +1,3 @@
-
 deps = src/skip.o
 callgrind_opts = --read-inline-info=yes --read-var-info=yes --dump-line=yes \
 								 --dump-instr=yes --collect-jumps=yes --collect-systime=yes \
@@ -10,7 +9,6 @@ callgrinds_all 		 = callgrind.out callgrind.log
 
 all: skip
 
-
 define do_callgrind
 	@mkdir -p $(@D)
 	valgrind --tool=callgrind -v --log-file=callgrind/$(1).log \
@@ -18,16 +16,11 @@ define do_callgrind
 					 $(callgrind_opts) $(2)
 endef
 
-.INTERMEDIATE: src/skip.o src/skip/settings.o \
-	$(callgrinds_targets) \
+.INTERMEDIATE: src/skip.o $(callgrinds_targets) \
 	$(callgrinds_logs)
 
 skip: $(deps)
 	cc -o skip $(deps)
-
-src/skip.o: src/skip/settings.h
-src/skip/settings.o: src/skip/settings.h
-
 
 ### Callgrind
 
