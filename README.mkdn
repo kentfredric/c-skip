@@ -56,6 +56,19 @@ perl -E 'say for A..F' | cat -n | tail -n +2
 #     6	F
 ```
 
+This is naturally 1-larger than the equivalent number skip takes,
+as `tail` implies 1-based indexing, where "2" is "Start at line
+..."
+
+```bash
+perl -E 'say for A..F' | cat -n | skip -n 1
+#     2	B
+#     3	C
+#     4	D
+#     5	E
+#     6	F
+```
+
 ## head
 
 GNU `head` has a similar complimentary function for "all but ... "
