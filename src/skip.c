@@ -66,9 +66,8 @@ void skip_settings_get(int argc, char **argv, struct skip_settings *set) {
       diehelp(argv);
     }
     if ( strcmp(argv[optind],"-") == 0 ) {
-      fprintf(stderr, "Using stdin\n");
+      /* noop */
     } else {
-      fprintf(stderr, "Using file %s\n", argv[optind] );
       if( ( set->fd = fopen( argv[optind], "r" ) ) == NULL ) {
         int errsv = errno;
         fprintf(stderr, "Can't read %s: %s\n", argv[optind], strerror(errsv) );
@@ -76,5 +75,4 @@ void skip_settings_get(int argc, char **argv, struct skip_settings *set) {
       }
     }
   }
-
 }
