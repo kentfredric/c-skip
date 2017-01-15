@@ -42,32 +42,12 @@ Turns out, GNU `tail` has this feature inbuilt, but the documentation pays
 so little attention to it you could easily overlook it.
 
 ```bash
-perl -E 'say for A..Z' | cat -n | tail -n +2
+perl -E 'say for A..F' | cat -n | tail -n +2
 #     2	B
 #     3	C
 #     4	D
 #     5	E
 #     6	F
-#     7	G
-#     8	H
-#     9	I
-#    10	J
-#    11	K
-#    12	L
-#    13	M
-#    14	N
-#    15	O
-#    16	P
-#    17	Q
-#    18	R
-#    19	S
-#    20	T
-#    21	U
-#    22	V
-#    23	W
-#    24	X
-#    25	Y
-#    26	Z
 ```
 
 ## head
@@ -75,29 +55,9 @@ perl -E 'say for A..Z' | cat -n | tail -n +2
 GNU `head` has a similar complimentary function for "all but ... "
 
 ```bash
-perl -E 'say for A..Z' | cat -n | head -n -2
+perl -E 'say for A..F' | cat -n | head -n -2
 #     1	A
 #     2	B
 #     3	C
 #     4	D
-#     5	E
-#     6	F
-#     7	G
-#     8	H
-#     9	I
-#    10	J
-#    11	K
-#    12	L
-#    13	M
-#    14	N
-#    15	O
-#    16	P
-#    17	Q
-#    18	R
-#    19	S
-#    20	T
-#    21	U
-#    22	V
-#    23	W
-#    24	X
 ```
