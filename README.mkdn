@@ -3,17 +3,21 @@
 
 This existed mostly because I found myself frequently doing:
 
-  something | head -n 20 ...
-  something | head -n 20 | tail -n 20 ...
-  something | head -n 40 | tail -n 20 ...
+```bash
+something | head -n 20 ...
+something | head -n 20 | tail -n 20 ...
+something | head -n 40 | tail -n 20 ...
+```
 
 And the mental math is hard.
 
 Instead, this is preferred:
 
-  something | head -n 20 ...
-  something | skip -n 20 | head -n 20 ...
-  something | skip -n 40 | head -n 20 ...
+```bash
+something | head -n 20 ...
+something | skip -n 20 | head -n 20 ...
+something | skip -n 40 | head -n 20 ...
+```
 
 This also has the benefit unlike tail, that it will start
 emitting very early, as opposed to at the end of IO.
@@ -24,9 +28,9 @@ required to make sure the first does what I expect it to is a lot.
 While the second hand allows for linear mental processing without
 mental backtracking.
 
-  "take a stream, skip the first 20 elements, return the next 20 elements"
+> take a stream, skip the first 20 elements, return the next 20 elements
 
 Is much easier to understand than:
 
-  "take a stream, take the first 40 elements, then take the last 20 elements of that"
+> take a stream, take the first 40 elements, then take the last 20 elements of that
 
