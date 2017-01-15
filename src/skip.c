@@ -27,7 +27,7 @@ int main (int argc, char **argv) {
   }
   if ( read != -1 ) { 
     while ((read = getline(&line, &len, s.fd)) != -1) {
-      printf("%s", line);
+      fwrite(line, read, 1, stdout);
     }
   }
   free(line);
