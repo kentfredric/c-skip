@@ -41,6 +41,12 @@ Is much easier to understand than:
 Turns out, GNU `tail` has this feature inbuilt, but the documentation pays
 so little attention to it you could easily overlook it.
 
+> ```
+> -n, --lines=[+]NUM
+>   output the last NUM lines, instead of the last 10; or use
+>   -n +NUM to output starting with line NUM
+> ```
+
 ```bash
 perl -E 'say for A..F' | cat -n | tail -n +2
 #     2	B
@@ -53,6 +59,12 @@ perl -E 'say for A..F' | cat -n | tail -n +2
 ## head
 
 GNU `head` has a similar complimentary function for "all but ... "
+
+> ```
+> -n, --lines=[-]NUM
+>   print the first NUM lines instead of the first 10; with the
+>   leading '-', print all but the last NUM lines of each file
+> ```
 
 ```bash
 perl -E 'say for A..F' | cat -n | head -n -2
