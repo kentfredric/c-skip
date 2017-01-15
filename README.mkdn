@@ -34,3 +34,24 @@ Is much easier to understand than:
 
 > take a stream, take the first 40 elements, then take the last 20 elements of that
 
+### SEE ALSO
+
+## tail
+
+Turns out, GNU `tail` has this feature inbuilt, but the documentation pays
+so little attention to it you could easily overlook it.
+
+```bash
+# Emits 9 to 100 as it starts at "line 10"
+# which is 9.
+seq 0 100 | tail -n +10
+```
+
+## head
+
+GNU `head` has a similar complimentary function for "all but ... "
+
+```bash
+# Emits 0 .. 90 as it "omits the last 10 items"
+seq 0 100 | head -n -10
+```
